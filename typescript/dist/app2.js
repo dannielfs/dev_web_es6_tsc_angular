@@ -54,4 +54,11 @@ var carroB = new Carro('Gol', 4);
 var carroC = new Carro('Ferrari', 2);
 /*Criando a lista de carros da concessionaria*/
 var concessionaria = new Concessionaria('Av Cesario alvim 666', [carroA, carroB, carroC]);
-console.log(concessionaria.mostrarListaDeCarros());
+/*Criar cliente - Comprar carro*/
+var cliente = new Pessoa('Danniel Sousa', 'Ferrari');
+concessionaria.mostrarListaDeCarros().map(function (carro) {
+    if (carro['modelo'] === cliente.dizerCarroPreferido()) {
+        cliente.comprarCarro(carro);
+    }
+});
+console.log(cliente.dizerCarroQueTem());
