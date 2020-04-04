@@ -15,3 +15,4 @@ carro.acelerar();
 carro.acelerar();
 console.log(carro);
 var consessionaria = new Concessionaria_1.default('', []);
+console.log(consessionaria);
