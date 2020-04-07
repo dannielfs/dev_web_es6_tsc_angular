@@ -1,0 +1,1 @@
+tsw -w => Compilação automatica
