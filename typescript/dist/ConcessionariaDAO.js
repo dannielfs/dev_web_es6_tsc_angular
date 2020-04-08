@@ -17,7 +17,7 @@ var ConcessionariaDAO = /** @class */ (function () {
         console.log('Concessinária atualizada');
         return true;
     };
-    ConcessionariaDAO.prototype.remover = function (object) {
+    ConcessionariaDAO.prototype.remover = function (id) {
         console.log('Concessinária removida');
         return new Concessionaria_1.default('', []);
     };
