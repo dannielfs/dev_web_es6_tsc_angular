@@ -1,7 +1,7 @@
-import { DAOinterface } from "./DAOinterface";
+import { DaoInterface } from "./DaoInterface";
 import Pessoa from "./Pessoa";
 
-export class PessoaDAO implements DAOinterface {
+export class PessoaDAO implements DaoInterface<Pessoa> {
     
     nomeTabela: string = 'tb_pessoa';
 
@@ -13,7 +13,7 @@ export class PessoaDAO implements DAOinterface {
         return true;
     }
 
-    remover(id: string): Pessoa {
+    remover(id: number): Pessoa {
         return new Pessoa('','');
     }
 

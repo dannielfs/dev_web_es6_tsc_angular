@@ -1,7 +1,7 @@
-import { DAOinterface } from "./DAOinterface";
+import { DaoInterface } from "./DaoInterface";
 import Moto from "./Moto";
 
-export class MotoDAO implements DAOinterface {
+export class MotoDAO implements DaoInterface<Moto> {
 
     nomeTabela: string = 'tb_moto';
 
