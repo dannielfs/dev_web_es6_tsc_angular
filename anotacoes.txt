@@ -1,1 +1,4 @@
 tsw -w => Compilação automatica
+
+  //property bind = metodo especifico para que atributos da classe sejam associados como valores de atributos de elementos html
+  //string interpolation = metodo generico que passa expressoes para html
