@@ -12,15 +12,15 @@
     </div>
     <div class="row pt-5">
       <div class="col">
-        <h6 class="traduza">Traduza a frase</h6>
-        <p>How are you</p>
+        <h6 class="traduza">{{instrucao}}</h6>
+        <p>{{frases[0].fraseEng}}</p>
         <div class="form-group">
-          <textarea class="form-control" rows="3"></textarea>
+          <textarea class="form-control" rows="3" (input)="atualizaResposta($event)"></textarea>
         </div>
         <div class="row">
           <div class="col">
             <div class="d-flex justify-content-end">
-              <button class="btn btn-primary txt-right" type="submit">Verificar</button>
+              <button class="btn btn-primary txt-right" type="button" (click)="verificarResposta()">Verificar</button>
             </div>
           </div>
         </div>

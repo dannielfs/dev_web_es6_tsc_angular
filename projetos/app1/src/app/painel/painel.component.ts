@@ -9,10 +9,19 @@ import { Frase } from '../shared/frase.model';
 })
 export class PainelComponent implements OnInit {
 
-  public frase: Array<Frase> = FRASE;
+  public instrucao: string = 'Traduza a frase:'
+  public frases: Array<Frase> = FRASE;
+  public resposta: string;
   constructor() { }
 
   ngOnInit() {
   }
 
+  public atualizaResposta(resposta: Event): void {
+    this.resposta = (<HTMLInputElement>resposta.target).value;
+  }
+
+  public verificarResposta(): void {
+
+  }
 }
