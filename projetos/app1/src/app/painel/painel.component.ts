@@ -32,11 +32,23 @@ export class PainelComponent implements OnInit {
       this.rodada++;
       this.progresso = this.progresso + (100 / this.frases.length);
       this.resposta = '';
-      this.atualizaRodada();
+      if (this.rodada < FRASE.length) {
+        this.atualizaRodada();
+      } else {
+        alert('Você venceu!');
+        this.rodada = 0;
+        this.progresso = 0;
+        this.tentativas = 3;
+      }
     } else {
       this.tentativas--;
+      this.resposta = '';
       if (this.tentativas === -1) {
-
+        alert('Você perdeu!');
+        this.rodada = 0;
+        this.progresso = 0;
+        this.tentativas = 3;
+        this.atualizaRodada();
       }
     }
   }

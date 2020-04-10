@@ -2,3 +2,5 @@ tsw -w => Compilação automatica
 
   //property bind = metodo especifico para que atributos da classe sejam associados como valores de atributos de elementos html
   //string interpolation = metodo generico que passa expressoes para html
+
+  $event = captura o estado do elemento do html do dom, no momento que o evento é disparado
