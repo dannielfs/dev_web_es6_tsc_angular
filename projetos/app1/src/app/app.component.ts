@@ -8,10 +8,15 @@ import { Component } from '@angular/core';
 export class AppComponent {
 
   public jogoEmAndamento: boolean = true;
+  public tipoEncerramento: string;
 
   public encerrarJogo(tipo: string): void {
-    console.log('encerrou');
+    this.tipoEncerramento = tipo;
     this.jogoEmAndamento = false;
+  }
 
+  public reinicarJogo(): void {
+    this.jogoEmAndamento = true;
+    this.tipoEncerramento = undefined;
   }
 }
