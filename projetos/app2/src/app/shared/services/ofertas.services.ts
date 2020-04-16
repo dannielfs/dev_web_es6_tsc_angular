@@ -34,7 +34,7 @@ export class OfertasService {
           });
       }
     ).then((ofertas: Oferta[]) => {
-      console.log('terceiro then')
+      console.log('terceiro then apos 3 s')
       return ofertas;
     })
   }
