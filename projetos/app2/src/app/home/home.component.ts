@@ -18,7 +18,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
 
-    this.ofertasService.getOfertas2()
+    this.ofertasService.getOfertas()
     .then(
       (ofertas) => {
         console.log('depois de 3 s')

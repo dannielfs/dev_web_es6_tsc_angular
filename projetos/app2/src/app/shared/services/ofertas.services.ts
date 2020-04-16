@@ -1,13 +1,24 @@
 import { Oferta } from '../model/oferta.model';
 import { OFERTA } from '../mock/oferta.mock';
-
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+@Injectable()
 export class OfertasService {
 
-  public ofertas: Array<Oferta> = OFERTA;
+  constructor(
+    private http: HttpClient
+  ){}
 
-  public getOfertas(): Array<any> {
-    return this.ofertas;
+
+  public getOfertas(): Promise<any> {
+
+    return this.http.get('http://localhost:3000/ofertas')
+    .toPromise()
+    .then((resposta: any) =>  resposta)
   }
+
+ /*
+  public ofertas: Array<Oferta> = OFERTA;
 
   public getOfertas2(): Promise<Oferta[]> {
     return new Promise(
@@ -37,5 +48,5 @@ export class OfertasService {
       console.log('terceiro then apos 3 s')
       return ofertas;
     })
-  }
+  } */
 }
