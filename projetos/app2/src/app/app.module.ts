@@ -10,6 +10,7 @@ import { RestaurantesComponent } from './restaurantes/restaurantes.component';
 import { DiversaoComponent } from './diversao/diversao.component';
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
+import { OfertasService } from './shared/services/ofertas.services';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,7 @@ import { AppRoutingModule } from './app-routing.module';
     RouterModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [OfertasService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
