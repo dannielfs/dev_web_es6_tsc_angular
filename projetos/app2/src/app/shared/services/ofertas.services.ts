@@ -11,7 +11,6 @@ export class OfertasService {
 
 
   public getOfertas(): Promise<any> {
-
     return this.http.get('http://localhost:3000/ofertas?destaque=true')
     .toPromise()
     .then((resposta: any) =>  resposta)
@@ -21,6 +20,12 @@ export class OfertasService {
     return this.http.get(`http://localhost:3000/ofertas?categoria=${categoria}`)
     .toPromise()
     .then((resposta: any) => resposta);
+  }
+
+  public getOfertaPorId(id: number): Promise<Oferta> {
+    return this.http.get(`http://localhost:3000/ofertas?id=${id}`)
+    .toPromise()
+    .then((resposta: any) => { return resposta[0]; })
   }
 
  /*
