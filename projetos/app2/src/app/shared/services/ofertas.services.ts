@@ -1,7 +1,7 @@
 import { Oferta } from '../model/oferta.model';
-import { OFERTA } from '../mock/oferta.mock';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { URL_API_OFERTAS } from './../app.api';
 @Injectable()
 export class OfertasService {
 
@@ -9,21 +9,20 @@ export class OfertasService {
     private http: HttpClient
   ){}
 
-
   public getOfertas(): Promise<any> {
-    return this.http.get('http://localhost:3000/ofertas?destaque=true')
+    return this.http.get(`${URL_API_OFERTAS}?destaque=true`)
     .toPromise()
     .then((resposta: any) =>  resposta)
   }
 
   public getOfertasPorCategoria(categoria: string): Promise<Oferta[]> {
-    return this.http.get(`http://localhost:3000/ofertas?categoria=${categoria}`)
+    return this.http.get(`${URL_API_OFERTAS}?categoria=${categoria}`)
     .toPromise()
     .then((resposta: any) => resposta);
   }
 
   public getOfertaPorId(id: number): Promise<Oferta> {
-    return this.http.get(`http://localhost:3000/ofertas?id=${id}`)
+    return this.http.get(`${URL_API_OFERTAS}?id=${id}`)
     .toPromise()
     .then((resposta: any) => { return resposta[0]; })
   }
