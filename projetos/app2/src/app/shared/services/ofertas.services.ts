@@ -1,7 +1,7 @@
 import { Oferta } from '../model/oferta.model';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { URL_API_OFERTAS } from './../app.api';
+import { URL_API_OFERTAS, URL_API_COMO_USAR, URL_API_ONDE_FICA } from './../app.api';
 @Injectable()
 export class OfertasService {
 
@@ -25,6 +25,18 @@ export class OfertasService {
     return this.http.get(`${URL_API_OFERTAS}?id=${id}`)
     .toPromise()
     .then((resposta: any) => { return resposta[0]; })
+  }
+
+  public getComoUsarOfertasPorId(id: number): Promise<string> {
+    return this.http.get(`${URL_API_COMO_USAR}?id=${id}`)
+    .toPromise()
+    .then((resposta: any) => resposta[0].descricao)
+  }
+
+  public getOndeFicaPorId(id: number): Promise<string> {
+    return this.http.get(`${URL_API_ONDE_FICA}?id=${id}`)
+    .toPromise()
+    .then((resposta: any) => resposta[0].descricao)
   }
 
  /*
