@@ -22,6 +22,11 @@ export class OfertaComponent implements OnInit {
     this.ofertaService.getOfertaPorId(id)
     .then((oferta: Oferta) => this.oferta = oferta)
     .catch((err) => console.log(err))
+
+/*     this.route.params.subscribe(
+      (res) => {
+        console.log(res);
+    }) */
   }
 
 }
