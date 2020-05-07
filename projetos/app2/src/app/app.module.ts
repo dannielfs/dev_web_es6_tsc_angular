@@ -1,19 +1,23 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
+import { registerLocaleData } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { TopoComponent } from './topo/topo.component';
 import { HomeComponent } from './home/home.component';
+import localePt from "@angular/common/locales/pt";
 import { RodapeComponent } from './rodape/rodape.component';
 import { RestaurantesComponent } from './restaurantes/restaurantes.component';
 import { DiversaoComponent } from './diversao/diversao.component';
-import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { OfertasService } from './shared/services/ofertas.services';
 import { OfertaComponent } from './oferta/oferta.component';
 import { ComoUsarComponent } from './oferta/como-usar/como-usar.component';
 import { OndeFicaComponent } from './oferta/onde-fica/onde-fica.component';
+
+import { DescricaoReduzida } from './shared/pipe/descricao-reduzida.pipe';
 
 @NgModule({
   declarations: [
@@ -25,15 +29,21 @@ import { OndeFicaComponent } from './oferta/onde-fica/onde-fica.component';
     DiversaoComponent,
     OfertaComponent,
     ComoUsarComponent,
-    OndeFicaComponent
+    OndeFicaComponent,
+    DescricaoReduzida
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     RouterModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
-  providers: [OfertasService],
+  providers: [
+    OfertasService,
+    {provide:LOCALE_ID, useValue: 'pt' },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+registerLocaleData(localePt);
