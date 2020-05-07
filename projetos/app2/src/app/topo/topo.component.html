@@ -1,27 +1,28 @@
 <div class="fixed-top">
   <nav class="navbar navbar-light bg-faded">
     <div class="container">
-      <div class="row my-row">
-        <div class="col-md-3">
-          <a class="navbar-brand" routerLink="">
-            <img src="/assets/logo.png" />
-          </a>
-        </div>
-        <div class="col-md-8">
-          <input type="text"
-            class="form-control"
-            placeholder="Pesquise por ofertas..."
-            #termoDaPesquisa
-            (keyup)="pesquisa(termoDaPesquisa.value)"
-            >
-        </div>
-        <div class="col-md-1">
-            <a a href="#"><img src="/assets/carrinho.png" /></a>
-        </div>
+      <div class="col-md-4">
+        <a class="navbar-brand" [routerLink]="['']">
+          <img src="/assets/logo.png" />
+        </a>
+      </div>
+      <div class="col-md-7">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Pesquise por ofertas..."
+          #termoDaPesquisa
+          (keyup)="pesquisa(termoDaPesquisa.value)"
+        />
+        <ul class="list-group" style="position: absolute">
+          <li class="list-group-item" *ngFor="let oferta of listaOfertas">{{ oferta.titulo }}</li>
+        </ul>
+      </div>
+      <div class="col-md-1">
+        <a a href="#"><img src="/assets/carrinho.png" /></a>
       </div>
     </div>
   </nav>
-
   <div class="menu">
     <div class="container">
       <ul class="nav">
