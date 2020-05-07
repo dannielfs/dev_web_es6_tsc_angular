@@ -1,9 +1,9 @@
 import { Oferta } from '../model/oferta.model';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { URL_API_OFERTAS, URL_API_COMO_USAR, URL_API_ONDE_FICA } from './../app.api';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators'
+import { map, retry, retryWhen, delay, take, finalize } from 'rxjs/operators'
 @Injectable()
 export class OfertasService {
 
@@ -43,7 +43,12 @@ export class OfertasService {
 
   public pesquisaOfertas(termo: string): Observable<Oferta[]> {
     return this.http.get(`${URL_API_OFERTAS}?descricao_oferta_like=${termo}`).pipe(
-      map((resposta: any) => resposta.json())
+      retryWhen(errors => errors.pipe(
+        delay(3000),
+        take(10),
+        finalize(() => console.log(errors))
+        )),
+      map((resposta: any) => { return resposta })
     )
   }
 
