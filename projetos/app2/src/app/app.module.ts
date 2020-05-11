@@ -19,6 +19,8 @@ import { OndeFicaComponent } from './oferta/onde-fica/onde-fica.component';
 
 import { DescricaoReduzida } from './shared/pipe/descricao-reduzida.pipe';
 import { OrdemCompraComponent } from './ordem-compra/ordem-compra.component';
+import { OrdemCompraService } from './shared/services/ordem-compra.services';
+import { OrdemCompraSucessoComponent } from './ordem-compra-sucesso/ordem-compra-sucesso.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,8 @@ import { OrdemCompraComponent } from './ordem-compra/ordem-compra.component';
     ComoUsarComponent,
     OndeFicaComponent,
     DescricaoReduzida,
-    OrdemCompraComponent
+    OrdemCompraComponent,
+    OrdemCompraSucessoComponent
   ],
   imports: [
     BrowserModule,
@@ -42,6 +45,7 @@ import { OrdemCompraComponent } from './ordem-compra/ordem-compra.component';
   ],
   providers: [
     OfertasService,
+    OrdemCompraService,
     {provide:LOCALE_ID, useValue: 'pt' },
   ],
   bootstrap: [AppComponent]
