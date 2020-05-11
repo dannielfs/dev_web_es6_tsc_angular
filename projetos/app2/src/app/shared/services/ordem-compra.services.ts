@@ -15,7 +15,7 @@ export class OrdemCompraService {
   public efetivarCompra(pedido: Pedido): Observable<any> {
 
     return this.http.post( `${URL_API}/pedidos`, pedido, ).pipe(
-      map( resposta => console.log(resposta) )
+      map( (resposta: any) => resposta.id )
     )
   }
 }

@@ -192,6 +192,34 @@
       "complemento": "nada",
       "formaPagamento": "dinheiro",
       "id": 1
+    },
+    {
+      "endereco": "342234",
+      "numero": "2234",
+      "complemento": "2342",
+      "formaPagamento": "dinheiro",
+      "id": 2
+    },
+    {
+      "endereco": "423423",
+      "numero": "43",
+      "complemento": "3",
+      "formaPagamento": "dinheiro",
+      "id": 3
+    },
+    {
+      "endereco": "44444 ",
+      "numero": "4",
+      "complemento": "4",
+      "formaPagamento": "dinheiro",
+      "id": 4
+    },
+    {
+      "endereco": "rua alfredo julio",
+      "numero": "234",
+      "complemento": "centro",
+      "formaPagamento": "dinheiro",
+      "id": 5
     }
   ]
 }
