@@ -3,11 +3,13 @@ import { NgModule, LOCALE_ID } from '@angular/core';
 import { registerLocaleData } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms'
+
+import localePt from "@angular/common/locales/pt";
 
 import { AppComponent } from './app.component';
 import { TopoComponent } from './topo/topo.component';
 import { HomeComponent } from './home/home.component';
-import localePt from "@angular/common/locales/pt";
 import { RodapeComponent } from './rodape/rodape.component';
 import { RestaurantesComponent } from './restaurantes/restaurantes.component';
 import { DiversaoComponent } from './diversao/diversao.component';
@@ -35,18 +37,20 @@ import { OrdemCompraSucessoComponent } from './ordem-compra-sucesso/ordem-compra
     OndeFicaComponent,
     DescricaoReduzida,
     OrdemCompraComponent,
-    OrdemCompraSucessoComponent
+    OrdemCompraSucessoComponent,
+
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     RouterModule,
     AppRoutingModule,
+    FormsModule
   ],
   providers: [
     OfertasService,
     OrdemCompraService,
-    {provide:LOCALE_ID, useValue: 'pt' },
+    { provide:LOCALE_ID, useValue: 'pt' },
   ],
   bootstrap: [AppComponent]
 })
