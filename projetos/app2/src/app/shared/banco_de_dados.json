@@ -220,6 +220,62 @@
       "complemento": "centro",
       "formaPagamento": "dinheiro",
       "id": 5
+    },
+    {
+      "endereco": "rua curitiba",
+      "numero": "3",
+      "complemento": "nenhum",
+      "formaPagamento": "dinheiro",
+      "id": 6
+    },
+    {
+      "endereco": "rua x",
+      "numero": "1",
+      "complemento": "",
+      "formaPagamento": "dinheiro",
+      "id": 7
+    },
+    {
+      "endereco": "rua x",
+      "numero": "1",
+      "complemento": "",
+      "formaPagamento": "dinheiro",
+      "id": 8
+    },
+    {
+      "endereco": "rua x",
+      "numero": "1",
+      "complemento": "",
+      "formaPagamento": "dinheiro",
+      "id": 9
+    },
+    {
+      "endereco": "rua x",
+      "numero": "1",
+      "complemento": "",
+      "formaPagamento": "dinheiro",
+      "id": 10
+    },
+    {
+      "endereco": "rua x",
+      "numero": "1",
+      "complemento": "",
+      "formaPagamento": "dinheiro",
+      "id": 11
+    },
+    {
+      "endereco": "rua x",
+      "numero": "1",
+      "complemento": "",
+      "formaPagamento": "dinheiro",
+      "id": 12
+    },
+    {
+      "endereco": "23422342",
+      "numero": "232342",
+      "complemento": "342",
+      "formaPagamento": "debito",
+      "id": 13
     }
   ]
 }
