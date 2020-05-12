@@ -3,7 +3,8 @@ import { NgModule, LOCALE_ID } from '@angular/core';
 import { registerLocaleData } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
-import { FormsModule } from '@angular/forms'
+//import { FormsModule } from '@angular/forms'
+import { ReactiveFormsModule } from '@angular/forms'
 
 import localePt from "@angular/common/locales/pt";
 
@@ -45,7 +46,8 @@ import { OrdemCompraSucessoComponent } from './ordem-compra-sucesso/ordem-compra
     HttpClientModule,
     RouterModule,
     AppRoutingModule,
-    FormsModule
+    //FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     OfertasService,

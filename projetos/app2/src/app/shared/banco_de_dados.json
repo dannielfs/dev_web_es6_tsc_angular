@@ -276,6 +276,13 @@
       "complemento": "342",
       "formaPagamento": "debito",
       "id": 13
+    },
+    {
+      "endereco": "56756756",
+      "numero": "567657",
+      "complemento": "567567",
+      "formaPagamento": "dinheiro",
+      "id": 14
     }
   ]
 }

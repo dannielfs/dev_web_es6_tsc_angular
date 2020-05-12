@@ -1,8 +1,7 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { OrdemCompraService } from './../shared/services/ordem-compra.services'
+import { Component, OnInit } from '@angular/core';
+import { OrdemCompraService } from '../shared/services/ordem-compra.services'
 import { Pedido } from '../shared/model/pedido.model'
-import { NgForm } from '@angular/forms';
-import { map } from 'rxjs/operators';
+import { FormGroup, FormControl, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-ordem-compra',
@@ -12,9 +11,13 @@ import { map } from 'rxjs/operators';
 })
 export class OrdemCompraComponent implements OnInit {
 
-  @ViewChild('formulario', { static: false }) public formulario: NgForm;
-
-  idPedidoCompra: number;
+  public idPedidoCompra: number;
+  public formulario: FormGroup = new FormGroup({
+    'endereco': new FormControl(null, [Validators.required, Validators.min(3), Validators.maxLength(100)]),
+    'numero': new FormControl(null, [Validators.required, Validators.min(3), Validators.maxLength(20)]),
+    'complemento': new FormControl(null),
+    'formaPagamento': new FormControl(null, [Validators.required])
+  });
 
   constructor(private ordemCompraService: OrdemCompraService) { }
 
@@ -22,17 +25,24 @@ export class OrdemCompraComponent implements OnInit {
 
   }
 
-  confirmarCompra(): void {
-    const form = this.formulario.value;
+  public confirmarCompra(): void {
 
-    const pedido: Pedido = new Pedido(
-      this.formulario.value.endereco,
-      this.formulario.value.numero,
-      this.formulario.value.complemento,
-      this.formulario.value.formaPagamento
-    )
-    this.ordemCompraService.efetivarCompra(pedido).subscribe(
-      (resposta: number) => this.idPedidoCompra = resposta
-    )
+    if (this.formulario.status === 'INVALID') {
+      Object.keys(this.formulario.value).forEach(
+        (chave) => {
+          this.formulario.get(chave).markAllAsTouched();
+        }
+      )
+    } else {
+      const pedido: Pedido = new Pedido(
+        this.formulario.value.endereco,
+        this.formulario.value.numero,
+        this.formulario.value.complemento,
+        this.formulario.value.formaPagamento
+      );
+      this.ordemCompraService.efetivarCompra(pedido).subscribe(
+        (resposta) => this.idPedidoCompra = resposta
+      )
+    }
   }
 }
