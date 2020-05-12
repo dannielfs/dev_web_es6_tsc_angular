@@ -1,7 +1,6 @@
 <div class="container">
   <div class="ordem-compra"
        *ngIf="idPedidoCompra === undefined">
-      >
     <form novalidate
           [formGroup]="formulario"
           (ngSubmit)="confirmarCompra()">
@@ -9,9 +8,11 @@
       <h5>Sua Compra</h5>
       <hr />
 
-      <div class="form-row" style="background: #FAFAFA; padding: 20px; border-bottom: solid 1px #F0F0F0">
+      <div class="form-row"
+           style="background: #FAFAFA; padding: 20px; border-bottom: solid 1px #F0F0F0">
         <div class="form-group col-sm-1">
-          <img src="/assets/ofertas/1/img1.jpg" class="img-fluid">
+          <img src="/assets/ofertas/1/img1.jpg"
+               class="img-fluid">
         </div>
         <div class="form-group col-sm-6">
           Super Burger
@@ -22,9 +23,11 @@
         <div>
           <div class="row">
             <div class="col">
-              <button type="button" class="btn btn-link">-</button>
+              <button type="button"
+                      class="btn btn-link">-</button>
               1
-              <button type="button" class="btn btn-link">+</button>
+              <button type="button"
+                      class="btn btn-link">+</button>
             </div>
           </div>
         </div>
@@ -34,9 +37,11 @@
         </div>
       </div>
 
-      <div class="form-row" style="background: #FAFAFA; padding: 20px; border-bottom: solid 1px #F0F0F0">
+      <div class="form-row"
+           style="background: #FAFAFA; padding: 20px; border-bottom: solid 1px #F0F0F0">
         <div class="form-group col-sm-1">
-          <img src="/assets/ofertas/4/img1.jpg" class="img-fluid">
+          <img src="/assets/ofertas/4/img1.jpg"
+               class="img-fluid">
         </div>
         <div class="form-group col-sm-6">
           Estância das águas
@@ -47,9 +52,11 @@
         <div>
           <div class="row">
             <div class="col">
-              <button type="button" class="btn btn-link">-</button>
+              <button type="button"
+                      class="btn btn-link">-</button>
               1
-              <button type="button" class="btn btn-link">+</button>
+              <button type="button"
+                      class="btn btn-link">+</button>
             </div>
           </div>
         </div>
@@ -72,38 +79,37 @@
       <div class="form-row">
 
         <div class="form-group col-md-6">
-          <input
-            type="text"
-            class="form-control"
-            placeholder="Endereço"
-            autocomplete="off"
-            formControlName="endereco"
-          >
-          <small *ngIf="formulario.get('endereco').valid && formulario.get('endereco').touched" class="form-text text-success">Ok</small>
-          <small *ngIf="formulario.get('endereco').invalid && formulario.get('endereco').touched" class="form-text text-danger">Endreço Inválido</small>
+          <input type="text"
+                 class="form-control"
+                 placeholder="Endereço"
+                 autocomplete="off"
+                 formControlName="endereco">
+          <small *ngIf="formulario.get('endereco').valid && formulario.get('endereco').touched"
+                 class="form-text text-success">Ok</small>
+          <small *ngIf="formulario.get('endereco').invalid && formulario.get('endereco').touched"
+                 class="form-text text-danger">Endreço Inválido</small>
         </div>
 
         <div class="form-group col-md-2">
-          <input
-            type="text"
-            class="form-control"
-            placeholder="Número"
-            autocomplete="off"
-            formControlName="numero"
-          >
-          <small *ngIf="formulario.get('numero').valid && formulario.get('numero').touched" class="form-text text-success">Ok</small>
-          <small *ngIf="formulario.get('numero').invalid && formulario.get('numero').touched" class="form-text text-danger">Número Inválido</small>
+          <input type="text"
+                 class="form-control"
+                 placeholder="Número"
+                 autocomplete="off"
+                 formControlName="numero">
+          <small *ngIf="formulario.get('numero').valid && formulario.get('numero').touched"
+                 class="form-text text-success">Ok</small>
+          <small *ngIf="formulario.get('numero').invalid && formulario.get('numero').touched"
+                 class="form-text text-danger">Número Inválido</small>
         </div>
 
         <div class="form-group col-md-4">
-          <input
-            type="text"
-            class="form-control"
-            placeholder="Complemento"
-            autocomplete="off"
-            formControlName="complemento"
-          >
-          <small *ngIf="formulario.get('complemento').valid && formulario.get('complemento').touched" class="form-text text-success">Ok</small>
+          <input type="text"
+                 class="form-control"
+                 placeholder="Complemento"
+                 autocomplete="off"
+                 formControlName="complemento">
+          <small *ngIf="formulario.get('complemento').valid && formulario.get('complemento').touched"
+                 class="form-text text-success">Ok</small>
         </div>
 
       </div>
@@ -115,24 +121,22 @@
       <div class="form-row">
 
         <div class="form-group col-md-3">
-          <select
-            class="form-control"
-            formControlName="formaPagamento"
-          >
+          <select class="form-control"
+                  formControlName="formaPagamento">
             <option value="">Selecione uma opção</option>
             <option value="dinheiro">Dinheiro</option>
             <option value="debito">Débito</option>
           </select>
-          <small *ngIf="formulario.get('formaPagamento').valid && formulario.get('formaPagamento').touched" class="form-text text-success">Ok</small>
-          <small *ngIf="formulario.get('formaPagamento').invalid && formulario.get('formaPagamento').touched" class="form-text text-danger">Forma de Pagamento Inválida</small>
+          <small *ngIf="formulario.get('formaPagamento').valid && formulario.get('formaPagamento').touched"
+                 class="form-text text-success">Ok</small>
+          <small *ngIf="formulario.get('formaPagamento').invalid && formulario.get('formaPagamento').touched"
+                 class="form-text text-danger">Forma de Pagamento Inválida</small>
         </div>
       </div>
 
       <hr />
-      <button
-        type="submit"
-        class="btn btn-primary btn-lg"
-      >Cofirmar compra</button>
+      <button type="submit"
+              class="btn btn-primary btn-lg">Cofirmar compra</button>
     </form>
   </div>
   <div *ngIf="idPedidoCompra !== undefined">
