@@ -1,7 +1,8 @@
 import { ItemCarrinho } from './../model/item-carinho.model';
 import { Oferta } from '../model/oferta.model';
+import { filter } from 'rxjs/operators';
 
-class CarrinhoService {
+export class CarrinhoService {
 
   itens: ItemCarrinho[] = [];
 
@@ -18,10 +19,37 @@ class CarrinhoService {
       oferta.valor,
       1
     )
-    console.log(itemCarrinho);
+    const itemCarrinhoEncontrado = this.itens.find((res: ItemCarrinho) => { return itemCarrinho.id == res.id }) ;
+    if (itemCarrinhoEncontrado) {
+      itemCarrinhoEncontrado.quantidade++;
+    } else {
+      this.itens.push(itemCarrinho);
+    }
   }
 
+  totalCarrinhoCompras(): number {
+    let total = 0;
+    this.itens.forEach((item: ItemCarrinho) => {
+      total += item.valor * item.quantidade;
+    })
+    return total;
+  }
 
+  adicionarQuantidade(itemCarrinho: ItemCarrinho): void {
+    let itemCarrinhoEncontrado = this.itens.find((res: ItemCarrinho) => res.id === itemCarrinho.id);
+    if (itemCarrinhoEncontrado) {
+      itemCarrinhoEncontrado.quantidade++;
+    }
+  }
+
+  removerQuantidade(itemCarrinho: ItemCarrinho): void {
+    let itemCarrinhoEncontrado = this.itens.find((res: ItemCarrinho) => res.id === itemCarrinho.id);
+    if (itemCarrinhoEncontrado) {
+      itemCarrinhoEncontrado.quantidade--;
+      if(itemCarrinhoEncontrado.quantidade === 0) {
+        this.itens.splice(this.itens.indexOf(itemCarrinhoEncontrado,0));
+      }
+    }
+  }
 }
 
-export default CarrinhoService;
