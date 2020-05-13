@@ -47,8 +47,7 @@ export class CarrinhoService {
     if (itemCarrinhoEncontrado) {
       itemCarrinhoEncontrado.quantidade--;
       if(itemCarrinhoEncontrado.quantidade === 0) {
-        const newArr = Object.assign( this.itens.splice(this.itens.indexOf(itemCarrinhoEncontrado,1)),{});
-        this.itens = Object.assign(newArr,{});
+        this.itens.splice(this.itens.indexOf(itemCarrinhoEncontrado),1);
       }
     }
   }
