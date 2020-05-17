@@ -39,15 +39,25 @@ export class OrdemCompraComponent implements OnInit {
         }
       )
     } else {
-      const pedido: Pedido = new Pedido(
-        this.formulario.value.endereco,
-        this.formulario.value.numero,
-        this.formulario.value.complemento,
-        this.formulario.value.formaPagamento
-      );
-      this.ordemCompraService.efetivarCompra(pedido).subscribe(
-        (resposta) => this.idPedidoCompra = resposta
-      )
+
+      if (this.carrinhoService.exibirItens().length === 0) {
+        alert('Você não selecionou nenhum item.');
+      } else {
+        const pedido: Pedido = new Pedido(
+          this.formulario.value.endereco,
+          this.formulario.value.numero,
+          this.formulario.value.complemento,
+          this.formulario.value.formaPagamento,
+          this.carrinhoService.exibirItens()
+          );
+          this.ordemCompraService.efetivarCompra(pedido).subscribe(
+            (resposta) => {
+              this.idPedidoCompra = resposta;
+              this.carrinhoService.limparCarrinho();
+
+            }
+          )
+      }
     }
   }
 
