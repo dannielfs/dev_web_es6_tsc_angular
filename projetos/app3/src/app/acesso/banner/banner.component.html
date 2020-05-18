@@ -1,3 +1,6 @@
 <div class="banner-background">
-  <img src="./../../../assets/banner-acesso/fundo.png" [@banner]="estado" alt="Banner">
+  <img *ngFor="let imagem of imagens"
+       [src]="imagem.url"
+       [@banner]="imagem.estado"
+       alt="Banner">
 </div>
